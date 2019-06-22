@@ -19,7 +19,7 @@ def two_sum(nums: List[int], target: int) -> List[int]:
             return [dictionary[target - nums[pos]], pos]
 
 
-def find_disappeared_numbers(nums: List[int]) -> object:
+def find_disappeared_numbers(nums: List[int]) -> List[int]:
     """
     Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
     Find all the elements of [1, n] inclusive that do not appear in this array.
@@ -98,7 +98,7 @@ def last_stone_weight(stones: List[int]) -> int:
     At the end, there is at most 1 stone left.  Return the weight of this stone (or 0 if there are no stones left.)
     :param stones: numbers representing different weight of the stones
     :return: weight of last stone left
-    >>> last_stone_weight(stones =[2,7,4,1,8,1])
+    >>> last_stone_weight(stones = [2,7,4,1,8,1])
     1
     """
     x = stones.pop(stones.index(max(stones)))
@@ -107,6 +107,26 @@ def last_stone_weight(stones: List[int]) -> int:
         stones.append(abs(x - y))
         x = stones.pop(stones.index(max(stones)))
     return x
+
+
+def climb_stairs(n: int) -> int:
+    """
+    You are climbing a stair case. It takes n steps to reach to the top.
+    Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+    :param n: number of steps in stair case
+    It's just the finding the fibbonacci number
+    >>> climb_stairs(2)
+    2
+    >>> climb_stairs(3)
+    3
+    """
+    if n == 1:
+        return 1
+    first = 1
+    second = 2
+    for i in range(2, n):
+        first, second = second, first + second
+    return second
 
 
 if __name__ == '__main__':
