@@ -117,8 +117,8 @@ def climb_stairs(n: int) -> int:
     It's just the finding the fibbonacci number
     >>> climb_stairs(2)
     2
-    >>> climb_stairs(3)
-    3
+    >>> climb_stairs(5)
+    8
     """
     if n == 1:
         return 1
