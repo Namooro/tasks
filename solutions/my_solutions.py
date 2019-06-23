@@ -79,7 +79,6 @@ def to_lower_case(string: str) -> str:
     P.S. combination of map and reduce functions is fast
     :param string: Input string
     :return: same string in lowercase
-
     >>> to_lower_case(string = "AaBbCc")
     'aabbcc'
     """
