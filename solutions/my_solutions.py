@@ -6,7 +6,7 @@ def two_sum(nums: List[int], target: int) -> List[int]:
     Given an array of integers, return indices of the two numbers such that they add up to a specific target.
     :param nums: list of numbers
     :param target: pre-specified number
-    >>> two_sum(nums = [2,7,11,15], target = 9)
+    >>> two_sum(nums = [2, 7, 11, 15], target = 9)
     [0, 1]
     """
     dictionary = dict()
@@ -26,7 +26,7 @@ def find_disappeared_numbers(nums: List[int]) -> List[int]:
     Do it without extra space and in O(n) runtime. You may assume the returned list does not count as extra space.
     :param nums: list of integers
     :return: inclusive numbers that not appeared in list
-    >>> find_disappeared_numbers(nums = [4,3,2,7,8,2,3,1])
+    >>> find_disappeared_numbers(nums = [4, 3, 2, 7, 8, 2, 3, 1])
     [6, 5]
     """
     result = []
@@ -97,7 +97,7 @@ def last_stone_weight(stones: List[int]) -> int:
     At the end, there is at most 1 stone left.  Return the weight of this stone (or 0 if there are no stones left.)
     :param stones: numbers representing different weight of the stones
     :return: weight of last stone left
-    >>> last_stone_weight(stones = [2,7,4,1,8,1])
+    >>> last_stone_weight(stones = [2, 7, 4, 1, 8, 1])
     1
     """
     x = stones.pop(stones.index(max(stones)))
@@ -106,6 +106,29 @@ def last_stone_weight(stones: List[int]) -> int:
         stones.append(abs(x - y))
         x = stones.pop(stones.index(max(stones)))
     return x
+
+
+def min_steps(n: int) -> int:
+    """
+    Initially on a notepad only one character 'A' is present. You can perform two operations on this notepad for each step:
+    Copy All: You can copy all the characters present on the notepad (partial copy is not allowed).
+    Paste: You can paste the characters which are copied last time.
+    Given a number n. You have to get exactly n 'A' on the notepad by performing the minimum number of steps permitted. Output the minimum number of steps to get n 'A'.
+    :param n: length of line that contains 'A'
+    :return: minimum number of steps that we need to achieve desirable length
+    Solution: we just should find biggest divisor of N
+    >>> min_steps(14)
+    9
+    >>> min_steps(3)
+    3
+    """
+    if n == 1:
+        return 0
+    solution = n // 2
+    for x in range(solution, 2, -1):
+        if n % x == 0:
+            return int(n // x) + min_steps(x)
+    return n
 
 
 def climb_stairs(n: int) -> int:
