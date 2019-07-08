@@ -73,6 +73,24 @@ def sorted_squares(a: List[int]) -> List[int]:
     return sorted(map(lambda x: x ** 2, a))
 
 
+def single_number(nums: List[int]) -> List[int]:
+    """
+    Given an array of numbers nums, in which exactly two elements appear only once
+     and all the other elements appear exactly twice. Find the two elements that appear only once.
+    :param nums: list of numbers
+    :return: list of elemnts that appeared only once
+    >>> sorted(single_number([1, 2, 1, 3, 2, 5]))
+    [3, 5]
+     """
+    hash_table = {}
+    for i in nums:
+        try:
+            hash_table.pop(i)
+        except KeyError:
+            hash_table[i] = 1
+    return list(hash_table.keys())
+
+
 def to_lower_case(string: str) -> str:
     """
     Implement function ToLowerCase() that has a string parameter str, and returns the same string in lowercase.
