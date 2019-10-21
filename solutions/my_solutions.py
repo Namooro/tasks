@@ -171,6 +171,31 @@ def climb_stairs(n: int) -> int:
     return second
 
 
+def first_missing_positive(nums: List[int]) -> int:
+    """Given an unsorted integer array, find the smallest missing positive integer.
+            algorithm should run in O(n) time and uses constant extra space.
+    >>> first_missing_positive([])
+    1
+    >>> first_missing_positive([1, 1000])
+    2
+    >>> first_missing_positive([3, 4, -1, 1])
+    2
+    >>> first_missing_positive([7, 8, 9, 11, 12])
+    1
+    """
+
+    if len(nums) > 0:
+        nums = set([x for x in nums if x > 0])
+        if 1 not in nums:
+            return 1
+        for i in range(1, max(nums)):
+            if i not in nums:
+                return i
+        return max(nums) + 1
+    else:
+        return 1
+
+
 if __name__ == '__main__':
     import doctest
 
