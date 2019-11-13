@@ -78,11 +78,9 @@ def num_jewels_in_stones(j: str, s: str) -> int:
     >>> num_jewels_in_stones(j = "aA", s = "aAAbbbb")
     3
     """
-    my_dict = dict.fromkeys(j, 0)
-    for i in s:
-        if i in my_dict:
-            my_dict[i] += 1
-    return sum(my_dict.values())
+    from collections import Counter
+    my_dict = Counter(s)
+    return sum([my_dict.get(i) for i in my_dict.keys() if i in j])
 
 
 def sorted_squares(a: List[int]) -> List[int]:
