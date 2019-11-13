@@ -34,10 +34,9 @@ def ballot(names: List[str]):
     >>> ballot(names = ["Bob", "Aaron"])
     'Bob'
     """
+    from collections import Counter
     if names:
-        ballot_dict = dict.fromkeys(names, 0)
-        for name in names:
-            ballot_dict[name] += 1
+        ballot_dict = Counter(names)
         max_votes = max(ballot_dict.values())
         winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max_votes], reverse=True)
         return winners[0]
