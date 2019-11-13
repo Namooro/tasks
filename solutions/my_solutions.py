@@ -37,8 +37,8 @@ def ballot(names: List[str]):
     from collections import Counter
     if names:
         ballot_dict = Counter(names)
-        max_votes = max(ballot_dict.values())
-        winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max_votes], reverse=True)
+        winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max(ballot_dict.values())],
+                         reverse=True)
         return winners[0]
     else:
         return ""
