@@ -21,12 +21,12 @@ def two_sum(nums: List[int], target: int) -> List[int]:
 
 def ballot(names: List[str]):
     """
-    There is a list of all votes for specific candidates for president.
+    There is a list of all votes for specific candidates in election.
     Our task is to find who is the winner based on maximum votes.
     In the case when the more than one person has a max amount of votes, a person,
     whose name is later in alphabet becomes the president.
     :param names: list of votes for specific challenger
-    :return: name of the elected president
+    :return: name of the elected candidate
     >>> ballot(names = ["Ash", "Zoe", "Ash"])
     'Ash'
     >>> ballot(names = ["Aaron", "Bob"])
@@ -37,8 +37,8 @@ def ballot(names: List[str]):
     from collections import Counter
     if names:
         ballot_dict = Counter(names)
-        max_votes = max(ballot_dict.values())
-        winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max_votes], reverse=True)
+        winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max(ballot_dict.values())],
+                         reverse=True)
         return winners[0]
     else:
         return ""
