@@ -211,12 +211,9 @@ def first_missing_positive(nums: List[int]) -> int:
 
     if len(nums) > 0:
         nums = set([x for x in nums if x > 0])
-        if 1 not in nums:
-            return 1
-        for i in range(1, max(nums)):
+        for i in range(1, max(nums) + 1):
             if i not in nums:
                 return i
-        return max(nums) + 1
     else:
         return 1
 
