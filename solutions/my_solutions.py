@@ -19,6 +19,32 @@ def two_sum(nums: List[int], target: int) -> List[int]:
             return [dictionary[target - nums[pos]], pos]
 
 
+def ballot(names: List[str]):
+    """
+    There is a list of all votes for specific candidates for president.
+    Our task is to find who is the winner based on maximum votes.
+    In the case when the more than one person has a max amount of votes, a person,
+    whose name is later in alphabet becomes the president.
+    :param names: list of votes for specific challenger
+    :return: name of the elected president
+    >>> ballot(names = ["Ash", "Zoe", "Ash"])
+    'Ash'
+    >>> ballot(names = ["Aaron", "Bob"])
+    'Bob'
+    >>> ballot(names = ["Bob", "Aaron"])
+    'Bob'
+    """
+    if names:
+        ballot_dict = dict.fromkeys(names, 0)
+        for name in names:
+            ballot_dict[name] += 1
+        max_votes = max(ballot_dict.values())
+        winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max_votes], reverse=True)
+        return winners[0]
+    else:
+        return ""
+
+
 def find_disappeared_numbers(nums: List[int]) -> List[int]:
     """
     Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
