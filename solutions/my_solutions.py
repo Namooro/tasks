@@ -29,9 +29,7 @@ def ballot(names: List[str]):
     :return: name of the elected candidate
     >>> ballot(names = ["Ash", "Zoe", "Ash"])
     'Ash'
-    >>> ballot(names = ["Aaron", "Bob"])
-    'Bob'
-    >>> ballot(names = ["Bob", "Aaron"])
+    >>> ballot(names = ["Aaron", "Bob", "Bob", "Aaron", "Zoe"])
     'Bob'
     """
     from collections import Counter
@@ -101,7 +99,7 @@ def single_number(nums: List[int]) -> List[int]:
     Given an array of numbers nums, in which exactly two elements appear only once
      and all the other elements appear exactly twice. Find the two elements that appear only once.
     :param nums: list of numbers
-    :return: list of elemnts that appeared only once
+    :return: list of elements that appeared only once
     >>> sorted(single_number([1, 2, 1, 3, 2, 5]))
     [3, 5]
      """
@@ -179,7 +177,7 @@ def climb_stairs(n: int) -> int:
     You are climbing a stair case. It takes n steps to reach to the top.
     Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
     :param n: number of steps in stair case
-    It's just the finding the fibbonacci number
+    It's just the finding the fibonacci number
     >>> climb_stairs(2)
     2
     >>> climb_stairs(5)
