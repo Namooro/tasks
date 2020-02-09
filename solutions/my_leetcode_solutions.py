@@ -214,6 +214,33 @@ def first_missing_positive(nums: List[int]) -> int:
         return 1
 
 
+def RLE(string):
+    """
+    the function that calculates the number of repeatable characters in string
+     and prints that letter and that amount on the condition, that letter is repeated more than once
+    >>> RLE(string="AAAABBBCCXYZDDDDEEEFFFAAAAAA")
+    ['A4', 'B3', 'C2', 'X', 'Y', 'Z', 'D4', 'E3', 'F3', 'A6']
+    >>> RLE(string="EEEFCFFAAA")
+    ['E3', 'F', 'C', 'F2', 'A3']
+    >>> RLE(string="AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+    ['A4', 'B3', 'C2', 'X', 'Y', 'Z', 'D4', 'E3', 'F3', 'A6', 'B28']
+    """
+    output_list = list()
+    i = 1
+    if string is not None:
+        for index in range(len(string) - 1):
+            letter = string[index]
+            if letter == string[index + 1]:
+                i += 1
+            if (index + 1 == len(string) - 1) | (letter != string[index + 1]):
+                if i != 1:
+                    output_list.append(f'{letter}{i}')
+                    i = 1
+                else:
+                    output_list.append(letter)
+    return output_list
+
+
 if __name__ == '__main__':
     import doctest
 
