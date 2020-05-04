@@ -33,13 +33,13 @@ def ballot(names: List[str]):
     'Bob'
     """
     from collections import Counter
+    result = ""
     if names:
         ballot_dict = Counter(names)
         winners = sorted([key for key in ballot_dict.keys() if ballot_dict[key] == max(ballot_dict.values())],
                          reverse=True)
-        return winners[0]
-    else:
-        return ""
+        result = winners[0]
+    return result
 
 
 def find_disappeared_numbers(nums: List[int]) -> List[int]:
@@ -100,7 +100,7 @@ def single_number(nums: List[int]) -> List[int]:
      and all the other elements appear exactly twice. Find the two elements that appear only once.
     :param nums: list of numbers
     :return: list of elements that appeared only once
-    >>> sorted(single_number([1, 2, 1, 3, 2, 5]))
+    >>> (single_number([1, 2, 1, 3, 2, 5]))
     [3, 5]
      """
     hash_table = {}
@@ -177,7 +177,7 @@ def climb_stairs(n: int) -> int:
     You are climbing a stair case. It takes n steps to reach to the top.
     Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
     :param n: number of steps in stair case
-    It's just the finding the fibonacci number
+    Solution: It's requires to discover the fibonacci number
     >>> climb_stairs(2)
     2
     >>> climb_stairs(5)
@@ -204,7 +204,6 @@ def first_missing_positive(nums: List[int]) -> int:
     >>> first_missing_positive([7, 8, 9, 11, 12])
     1
     """
-
     if len(nums) > 0:
         nums = set([x for x in nums if x > 0])
         for i in range(1, max(nums) + 1):
