@@ -39,12 +39,12 @@ class RatsAndPoison:
         Converting the flask list to integer format via binary representation, and
         then by using bit shift operation, checking which one rats will die from poison in the flask.
          >>> RatsAndPoison.poison_rats(flasks = [0, 0, 0, 0, 0, 1, 0])
-          Rat number 1 is dead
+         Rat number 1 is dead
          >>> RatsAndPoison.poison_rats(flasks = [0, 0, 0, 0, 0, 0, 1])
-          All rats are still alive
+         All rats are still alive
          >>> RatsAndPoison.poison_rats(flasks = [0, 1, 0, 0, 0, 0, 0])
-          Rat number 1 is dead
-          Rat number 3 is dead
+         Rat number 1 is dead
+         Rat number 3 is dead
         """
         binary_answer = math.ceil(math.log2(sum(2 ** i for i, v in enumerate(reversed(flasks)) if v)))
         rat_counter = 0
