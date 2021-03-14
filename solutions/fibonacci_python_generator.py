@@ -1,5 +1,5 @@
 def fibonacci():
-    """ function, that contains generator yielding Fibonacci numbers
+    """ function containing generator yielding Fibonacci numbers
         and prints Fibonacci number as an integer every 0.5 seconds
     """
     import time
