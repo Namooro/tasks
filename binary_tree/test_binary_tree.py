@@ -15,7 +15,6 @@ def btree() -> TreeNode:
     #       4    5      8
     #     /   \
     #    7     6
-    @return:
     """
     root = TreeNode(1)
     root.left = TreeNode(2)
