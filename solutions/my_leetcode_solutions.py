@@ -241,14 +241,14 @@ def RLE(string):
 
 
 def find_common_number(first: List[int], second: List[int], third: List[int]):
-    #find common number in three arrays
+    # find common number in three arrays
     print(set(first) & set(second) & set(third))
 
 
 def merge(nums1: List[int], m: int, nums2: List[int], n: int):
-    '''
-    merge two sorted arrays inplace
-    '''
+    """
+        merge two sorted arrays inplace
+    """
     while n:
         if m and nums1[m - 1] >= nums2[n - 1]:
             nums1[m + n - 1] = nums1[m - 1]
@@ -286,11 +286,11 @@ def rele(string: str):
 
 
 def getWrongAnswer(C: str) -> str:
-    '''
+    """
      Function that translates letters A into letters B
-    >>> getWrongAnswer(5, "AABAB")
+    >>> getWrongAnswer("AABAB")
     BBABA
-    '''
+    """
     trantab = C.maketrans("AB", "BA")
     print(C.translate(trantab))
 
