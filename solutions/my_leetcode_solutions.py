@@ -240,6 +240,61 @@ def RLE(string):
     return output_list
 
 
+def find_common_number(first: List[int], second: List[int], third: List[int]):
+    #find common number in three arrays
+    print(set(first) & set(second) & set(third))
+
+
+def merge(nums1: List[int], m: int, nums2: List[int], n: int):
+    '''
+    merge two sorted arrays inplace
+    '''
+    while n:
+        if m and nums1[m - 1] >= nums2[n - 1]:
+            nums1[m + n - 1] = nums1[m - 1]
+            m -= 1
+        else:
+            nums1[m + n - 1] = nums2[n - 1]
+            n -= 1
+
+
+def rele(string: str):
+    """
+        Function that calculates the number of repeatable characters in string
+         and prints that letter and that amount on the condition, that letter is repeated more than once
+        >>> RLE(string="AAAABBBCCXYZDDDDEEEFFFAAAAAA")
+        ['A4', 'B3', 'C2', 'X', 'Y', 'Z', 'D4', 'E3', 'F3', 'A6']
+        >>> RLE(string="EEEFCFFAAA")
+        ['E3', 'F', 'C', 'F2', 'A3']
+        >>> RLE(string="AAAABBBCCXYZDDDDEEEFFFAAAAAABBBBBBBBBBBBBBBBBBBBBBBBBBBB")
+        ['A4', 'B3', 'C2', 'X', 'Y', 'Z', 'D4', 'E3', 'F3', 'A6', 'B28']
+    """
+
+    char = string[0]
+    count = 0
+    res = []
+    for i in string:
+        if i == char:
+            count += 1
+        else:
+            res.append(char + ("" if count == 1 else str(count)))
+            count = 1
+            char = i
+    if count != 0:
+        res.append(char + ("" if count == 1 else str(count)))
+    return res
+
+
+def getWrongAnswer(C: str) -> str:
+    '''
+     Function that translates letters A into letters B
+    >>> getWrongAnswer(5, "AABAB")
+    BBABA
+    '''
+    trantab = C.maketrans("AB", "BA")
+    print(C.translate(trantab))
+
+
 if __name__ == '__main__':
     import doctest
 
